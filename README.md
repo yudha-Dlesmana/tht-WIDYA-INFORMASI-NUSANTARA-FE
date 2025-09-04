@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend - FE Win Project
 
-## Getting Started
+Frontend project ini dibuat menggunakan **Next.js** dan beberapa library pendukung seperti **React Hook Form**, **TanStack Query**, dan **ShadCN UI**. Project ini berfungsi untuk berinteraksi dengan backend project yang sudah disediakan, termasuk fitur register, login, dan manajemen product.
 
-First, run the development server:
+---
+
+## 🔧 Setup dan Menjalankan Project
+
+1. Clone repository ini.
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Jalankan Project
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. buka browser di http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📝 Fitur
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. User Authentication
 
-## Learn More
+- Register: Untuk mendaftarkan user baru.
+- Login: Masuk ke sistem menggunakan akun yang sudah terdaftar.
 
-To learn more about Next.js, take a look at the following resources:
+2. Dashboard
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Menampilkan profile user yang sedang login:
+  - Nama
+  - Email
+  - Gender
+- Tabs Product
+  - All Products: Menampilkan semua produk dari semua user.
+  - User's Product: Menampilkan hanya produk yang dimiliki oleh user yang sedang login.
+  - Dilengkapi dengan pagination untuk berpindah halaman produk.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Create Product
 
-## Deploy on Vercel
+- Tersedia tombol Create Product di tab Product.
+- Menampilkan Dialog Form untuk input:
+  - Name
+  - Price
+  - Quantity
+  - Data yang di-submit akan menambahkan produk baru untuk user.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5. Update & Delete Product
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Di tab User's Product, setiap produk dapat di-update atau di-delete.
+- Update menampilkan form dialog dengan data awal produk (default values).
+- Delete menampilkan confirmation dialog sebelum menghapus produk.
+- Semua perubahan otomatis melakukan refresh data menggunakan TanStack Query (invalidateQueries).
+
+## 📂 Struktur Project (Inti)
+
+```bash
+/app
+  /register
+    /page.tsx      --> register
+  /login
+    /page.tsx      --> login
+  /page.tsx        --> Dashboard utama, tabs, table
+/components
+  /UI              --> from shadcn
+
+/hooks
+  useProducts.ts
+  useUsers.ts
+
+/store
+  store.ts
+```
