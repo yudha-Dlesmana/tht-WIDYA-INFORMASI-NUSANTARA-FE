@@ -21,6 +21,8 @@ npm run dev
 
 4. buka browser di http://localhost:3000
 
+5. jalankan clone dan jalan Project BE dari repository:https://github.com/yudha-Dlesmana/tht-WIDYA-INFORMASI-NUSANTARA-BE.git
+
 ## 📝 Fitur
 
 1. User Authentication
